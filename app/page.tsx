@@ -2,7 +2,7 @@ import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import { HomeContent } from './components/home-content';
 
-export default async function HomePage(): Promise<JSX.Element> {
+export default async function HomePage() {
   const { userId } = await auth();
 
   // Redirect authenticated users to dashboard

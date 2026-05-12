@@ -2,7 +2,7 @@ import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default async function Dashboard(): Promise<JSX.Element> {
+export default async function Dashboard() {
   const { userId } = await auth();
 
   if (!userId) {
