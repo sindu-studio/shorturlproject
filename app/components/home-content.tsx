@@ -1,11 +1,40 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link2, Zap, BarChart3, Lock, Share2, Clock } from 'lucide-react';
 
 export function HomeContent() {
+  const router = useRouter();
+  const { user, isLoaded } = useUser();
+
+  // Redirect to dashboard if user is authenticated
+  useEffect(() => {
+    if (isLoaded && user) {
+      router.push('/dashboard');
+    }
+  }, [isLoaded, user, router]);
+
+  // Show loading state while checking auth
+  if (!isLoaded) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-zinc-600 dark:text-zinc-400">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render content if user is authenticated (redirect in progress)
+  if (user) {
+    return null;
+  }
   const features = [
     {
       icon: Link2,

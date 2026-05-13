@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { ClerkProvider, Show, UserButton } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Navigation } from "./components/navigation";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,26 +31,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ClerkProvider>
-          <header className="border-b">
-            <nav className="flex items-center justify-between p-4 max-w-7xl mx-auto w-full">
-              <div className="text-xl font-bold text-blue-600 dark:text-blue-400">
-                Short URL
-              </div>
-              <div className="flex gap-4">
-                <Show when="signed-out">
-                  <Link href="/sign-in">
-                    <Button variant="outline">Sign In</Button>
-                  </Link>
-                  <Link href="/sign-up">
-                    <Button>Sign Up</Button>
-                  </Link>
-                </Show>
-                <Show when="signed-in">
-                  <UserButton />
-                </Show>
-              </div>
-            </nav>
-          </header>
+          <Navigation />
           {children}
         </ClerkProvider>
       </body>

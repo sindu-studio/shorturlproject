@@ -176,6 +176,7 @@ The `/doc` directory contains detailed, required guidelines for specific impleme
 - ❌ Don't mix Server and Client Components without understanding the implications
 - ❌ Don't use `useRouter` in Server Components
 - ❌ Don't import server-only code in client components
+- ❌ **NEVER use `middleware.ts`** - It is deprecated in Next.js 16. Use `proxy.ts` instead
 - ✅ Do use the `'use server'` directive for server actions
 - ✅ Do leverage Suspense for streaming UI
 - ✅ Do test client/server boundaries carefully
