@@ -1,3 +1,8 @@
+
+---
+description: Read this file before implemention or modifying the authentication and authorization for the project.
+---
+
 # Authentication & Authorization Standards
 
 This document outlines the standards for implementing authentication and authorization in the Short URL Project. All authentication must use Clerk via `@clerk/nextjs` — no alternative authentication methods are permitted.

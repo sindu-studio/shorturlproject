@@ -1,3 +1,8 @@
+
+---
+description: Read this before creating or modifiyng UI components in the project.
+---
+
 # shadcn/ui Standards
 
 This document outlines the standards for using shadcn/ui components in the Short URL Project. All UI elements must use shadcn/ui components — custom components are not permitted.
