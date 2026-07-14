@@ -9,6 +9,11 @@ interface CreateLinkInput {
   customSlug?: string;
 }
 
+/**
+ * Server action that authenticates the current user, validates the submitted URL/slug, and persists a new shortened link.
+ * @param input - The original URL and optional custom slug to create the link with.
+ * @returns An object indicating whether creation succeeded, with an error message when it did not.
+ */
 export async function createLinkAction(input: CreateLinkInput): Promise<{ success: boolean; error?: string }> {
   try {
     // 1. Authenticate user

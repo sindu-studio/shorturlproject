@@ -6,12 +6,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { AlertCircle } from 'lucide-react';
 
+/**
+ * Renders a form for submitting a URL (and optional custom slug) to create a shortened link, showing loading and error states.
+ * @param onSuccess - Callback invoked after the link is successfully created.
+ */
 export function CreateLinkForm({ onSuccess }: { onSuccess: () => void }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [originalUrl, setOriginalUrl] = useState('');
   const [customSlug, setCustomSlug] = useState('');
 
+  /** Submits the form data to the create-link server action and handles the resulting success or error state. */
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
