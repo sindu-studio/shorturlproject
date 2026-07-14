@@ -12,11 +12,15 @@ interface EditLinkFormProps {
   onSuccess: () => void;
 }
 
+/**
+ * Renders a form for editing a short link's destination URL and submitting the change via `updateLinkAction`.
+ */
 export function EditLinkForm({ linkId, originalUrl, onSuccess }: EditLinkFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [url, setUrl] = useState(originalUrl);
 
+  /** Submits the updated URL to the server action and reports the outcome via loading/error state. */
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);

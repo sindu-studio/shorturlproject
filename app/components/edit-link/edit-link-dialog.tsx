@@ -18,9 +18,13 @@ interface EditLinkDialogProps {
   onSuccess?: () => void;
 }
 
+/**
+ * Renders an edit icon button that opens a dialog for editing a short link's destination URL.
+ */
 export function EditLinkDialog({ linkId, originalUrl, onSuccess }: EditLinkDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  /** Closes the dialog and notifies the parent that the edit completed successfully. */
   function handleSuccess() {
     setIsOpen(false);
     onSuccess?.();

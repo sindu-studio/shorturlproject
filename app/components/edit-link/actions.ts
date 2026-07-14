@@ -10,6 +10,13 @@ interface UpdateLinkInput {
   originalUrl: string;
 }
 
+/**
+ * Server action that updates the destination URL of an existing short link owned by the current user.
+ * Authenticates the caller via Clerk, validates the input against `UpdateLinkSchema`, persists the change,
+ * and revalidates the dashboard route so the updated link is reflected in cached data.
+ * @param input - The id of the link to update and its new original URL.
+ * @returns An object indicating whether the update succeeded, with an `error` message when it did not.
+ */
 export async function updateLinkAction(input: UpdateLinkInput): Promise<{ success: boolean; error?: string }> {
   try {
     // 1. Authenticate user
