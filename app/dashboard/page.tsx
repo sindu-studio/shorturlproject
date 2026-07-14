@@ -8,6 +8,9 @@ import { CopyLinkButton } from '@/app/components/copy-link-button';
 import { getUserLinks } from '@/data/links';
 import { ExternalLink } from 'lucide-react';
 
+/**
+ * Dashboard route for authenticated users: redirects to home if signed out, otherwise renders the user's short links with create, copy, edit, and delete actions.
+ */
 export default async function Dashboard() {
   const { userId } = await auth();
 

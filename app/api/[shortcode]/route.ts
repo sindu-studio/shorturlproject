@@ -5,6 +5,12 @@ import { db } from '@/db';
 import { shortenedLinks } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 
+/**
+ * Looks up a short code and redirects the client to its original URL, adding an https:// prefix if the stored URL has no protocol.
+ * @param request - The incoming redirect request.
+ * @param params - Route params containing the `shortcode` to resolve.
+ * @returns A 301 redirect to the original URL, or a JSON error response (400, 404, or 500).
+ */
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ shortcode: string }> }

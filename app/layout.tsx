@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   description: "Create beautiful short URLs, track clicks, and manage your links with ease. Fast, secure, and easy to use.",
 };
 
+/**
+ * Root HTML layout applied to every route: sets up fonts, wraps the app in ClerkProvider for authentication, and renders the persistent navigation bar around the page content.
+ * @param children - The page content to render inside the layout.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

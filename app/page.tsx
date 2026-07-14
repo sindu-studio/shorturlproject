@@ -6,6 +6,9 @@ import { Button } from '@/components/ui/button';
 import { LinkCard } from './components/link-card';
 import Link from 'next/link';
 
+/**
+ * Home route: shows a marketing landing page with sign-in/sign-up links for anonymous visitors, or the signed-in user's list of shortened links.
+ */
 export default async function HomePage() {
   const { userId } = await auth();
 
