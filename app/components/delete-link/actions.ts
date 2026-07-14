@@ -8,6 +8,11 @@ interface DeleteLinkInput {
   id: number;
 }
 
+/**
+ * Server action that deletes a short link owned by the currently authenticated user.
+ * @param input - The id of the link to delete.
+ * @returns An object indicating whether the deletion succeeded, with an error message if it did not.
+ */
 export async function deleteLinkAction(input: DeleteLinkInput): Promise<{ success: boolean; error?: string }> {
   try {
     // 1. Authenticate user

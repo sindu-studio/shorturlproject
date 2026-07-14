@@ -20,11 +20,16 @@ interface DeleteLinkDialogProps {
   onSuccess?: () => void;
 }
 
+/**
+ * Renders a trash-icon trigger that opens a confirmation dialog for deleting a short link,
+ * showing a loading state while the deletion is in progress and an error message on failure.
+ */
 export function DeleteLinkDialog({ linkId, shortCode, onSuccess }: DeleteLinkDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  /** Submits the delete request for this link and closes the dialog on success. */
   async function handleDelete() {
     setError(null);
     setIsLoading(true);
