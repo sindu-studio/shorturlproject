@@ -8,6 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link2, Zap, BarChart3, Lock, Share2, Clock } from 'lucide-react';
 
+/**
+ * Renders the marketing landing page (hero, features, and call-to-action sections), redirecting
+ * signed-in users to the dashboard instead of showing the marketing content.
+ */
 export function HomeContent() {
   const router = useRouter();
   const { user, isLoaded } = useUser();

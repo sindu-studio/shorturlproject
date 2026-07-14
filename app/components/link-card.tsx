@@ -11,7 +11,15 @@ interface LinkCardProps {
   createdAt: Date;
 }
 
+/**
+ * Renders a card summarizing a single shortened link, with actions to copy, visit, or delete it.
+ * @param props.id - The link's database id.
+ * @param props.shortCode - The short code segment of the shortened URL.
+ * @param props.originalUrl - The destination URL the short link redirects to.
+ * @param props.createdAt - When the link was created.
+ */
 export function LinkCard({ id, shortCode, originalUrl, createdAt }: LinkCardProps) {
+  /** Copies the shortened URL for this link to the clipboard. */
   const handleCopy = () => {
     navigator.clipboard.writeText(`${window.location.origin}/${shortCode}`);
   };

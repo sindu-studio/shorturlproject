@@ -6,7 +6,12 @@ interface CopyLinkButtonProps {
   shortCode: string;
 }
 
+/**
+ * Renders an icon button that copies the full shortened URL for the given short code to the clipboard.
+ * @param props.shortCode - The short code segment appended to the site origin to form the shortened URL.
+ */
 export function CopyLinkButton({ shortCode }: CopyLinkButtonProps) {
+  /** Copies the shortened URL to the clipboard, alerting the user if the copy fails. */
   function handleCopy() {
     const shortUrl = `${window.location.origin}/${shortCode}`;
     navigator.clipboard.writeText(shortUrl).catch(() => {

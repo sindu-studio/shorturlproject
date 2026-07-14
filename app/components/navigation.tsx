@@ -5,6 +5,10 @@ import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
+/**
+ * Renders the top-level site header with branding and, depending on auth state, sign-in/sign-up
+ * links or the user's account button.
+ */
 export function Navigation() {
   const { userId, isLoaded } = useAuth();
 
